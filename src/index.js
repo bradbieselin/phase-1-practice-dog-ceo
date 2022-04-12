@@ -31,5 +31,11 @@ function addBreed(breeds) {
     }
 }
 
+document.addEventListener("click", handleClick);
+
+function handleClick (e) {
+    e.target.style.color = "red"
+}
+
 fetchDogs();
 fetchBreeds();
