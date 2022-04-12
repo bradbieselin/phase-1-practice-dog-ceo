@@ -12,7 +12,8 @@ function addImage(pictures) {
     const imageLink = pictures.message;
     const img = document.createElement('img');
 
-    imageLink.forEach(element => img.src = element);
+    const random = Math.floor(Math.random() * 4)
+    img.src = imageLink[random];
     document.querySelector("#dog-image-container").append(img);
 }
 
@@ -31,10 +32,12 @@ function addBreed(breeds) {
     }
 }
 
-document.addEventListener("click", handleClick);
+const li = document.getElementsByTagName("li");
 
+document.addEventListener("click", handleClick);
 function handleClick (e) {
-    e.target.style.color = "red"
+    if(e.target.tagName.toLowerCase() === "li") {e.target.style.color = "red"}
+    
 }
 
 fetchDogs();
