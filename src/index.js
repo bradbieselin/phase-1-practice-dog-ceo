@@ -25,10 +25,25 @@ const fetchBreeds = () => {
 
 function addBreed(breeds) {
     const breedMessage = breeds.message;
+    const ul = document.querySelector("#dog-breeds")
+
     for(const breed in breedMessage) {
-        const li = document.createElement("li");
-        li.innerText = breed;
-        document.querySelector("#dog-breeds").append(li);
+        if (breedMessage[breed].length !== 0) {
+            const array = breedMessage[breed];
+            array.forEach(nestedBreed => {
+                const innerLi = document.createElement("li");
+                console.log(breed);
+                innerLi.innerText = `${nestedBreed} ${breed}`;
+                
+                ul.appendChild(innerLi);
+            })
+        } else {
+            const li = document.createElement("li");
+
+            li.innerText = breed;
+
+            ul.appendChild(li);
+        }
     }
 }
 
